@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>House Rent Prediction</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+  <form action="{{ url_for('predict')}}" method="POST">
+  <div class="logbox card">
+    <div class="card-header">
+      <h3>House Rent Prediction</h3>
+    </div>
+    <div class="card-body">
+      <p>Which CITY is the house located in :  <select name="city" required="required">
+                <option value="Belo Horizonte">Belo Horizonte</option>
+                <option value="Campinas">Campinas</option>
+                <option value="Porto Alegre">Porto Alegre</option>
+                <option value="Rio de Janeiro">Rio de Janeiro</option>
+                <option value="São Paulo">São Paulo</option>
+      </select>
+      </p>
+      <p>Specify the Area (in sq.ft) :  <input type="number" /> </p>
+      <p>Number of Rooms :  <select name="rooms" required="required">
+        <option value="1">1</option>        <option value="2">2</option>        <option value="3">3</option>        <option value="4">4</option>
+        <option value="5">5</option>        <option value="6">6</option>        <option value="7">7</option>        <option value="8">8</option>
+        <option value="9">9</option>        <option value="10">10</option>        <option value="11">11</option>      <option value="12">12</option>        <option value="13">13</option>
+        </select>
+        </p>
+      <p>Number of Bathrooms :  <select name="bathrooms" required="required">
+        <option value="1">1</option>        <option value="2">2</option>        <option value="3">3</option>        <option value="4">4</option>
+        <option value="5">5</option>        <option value="6">6</option>        <option value="7">7</option>        <option value="8">8</option>
+        <option value="9">9</option>        <option value="10">10</option>
+        </select>
+      </p>
+      <p>Number of Parking Spaces :  <select name="parking spaces" required="required">
+        <option value="1">1</option>        <option value="2">2</option>        <option value="3">3</option>        <option value="4">4</option>
+        <option value="5">5</option>        <option value="6">6</option>        <option value="7">7</option>        <option value="8">8</option>
+        <option value="9">9</option>        <option value="10">10</option>      <option value="11">11</option>      <option value="12">12</option>
+        </select>
+      </p>
+      <p>Which floor do you want to rent out :  <input type="number" /> </p>
+      <p>Would you allow animals: <select name="animals" >
+        <option value="acept">Accept</option>        <option value="not acept">Not accept</option>
+        </select>
+      </p>
+      <p>Is the house furnished: <select name="furniture" >
+        <option value="furnished">Furnished</option>        <option value="not furnished">Not Furnished</option>
+        </select>
+      </p>
+      <p>House Association Tax :  <input type="number" /> </p>
+      <p>Property Tax :  <input type="number" /> </p>
+      <p>Fire Insurance :  <input type="number" name="fire insurance" required="required"/> </p>
+      <button type="submit" class="btn btn-light btn-lg btn-outline-dark btn-block" value="submit">Submit</button>
+    </div>
+  </div>
+
+</form>
+  <br><h4 align="center"<b>{{prediction}}</b></h4>
+    <br>
+
+<style>
+body{
+  height:100%;
+  background-color: black;
+}
+h1, h2, h3{
+text-align: center;
+}
+.logbox{
+  padding-left: 10rem;
+  padding-right:10rem;
+  height:100%;
+  border-color: black;
+}
+.card-body{
+  text-align: justify;
+}
+.btn{
+  margin-top: 2rem;
+}
+</style>
+</body>
+</html>
